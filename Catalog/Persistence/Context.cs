@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Catalog.Entities;
 
-namespace Catalog.Repositories
+namespace Catalog.Persistence
 {
     public class Context : DbContext
     {

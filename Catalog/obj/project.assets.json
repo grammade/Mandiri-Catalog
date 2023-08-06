@@ -75,6 +75,22 @@
           }
         }
       },
+      "CSRequest/1.2.6": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/net6.0/CSRequest.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CSRequest.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -123,6 +139,25 @@
             "related": ".xml"
           }
         }
+      },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.15.1"
+        },
+        "compile": {
+          "lib/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Microsoft.AspNetCore.Authorization/2.2.0": {
         "type": "package",
@@ -1173,6 +1208,22 @@
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         }
       },
+      "Namotion.Reflection/2.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Namotion.Reflection.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Namotion.Reflection.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -1248,6 +1299,40 @@
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
             "related": ".pdb;.xml"
+          }
+        }
+      },
+      "NJsonSchema/10.9.0": {
+        "type": "package",
+        "dependencies": {
+          "Namotion.Reflection": "2.1.2",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NJsonSchema.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NJsonSchema.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "NSwag.Core/13.19.0": {
+        "type": "package",
+        "dependencies": {
+          "NJsonSchema": "10.9.0",
+          "Newtonsoft.Json": "10.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/NSwag.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NSwag.Core.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -2918,6 +3003,19 @@
         "lib/netstandard2.0/Azure.Identity.xml"
       ]
     },
+    "CSRequest/1.2.6": {
+      "sha512": "MNKeCGGi2tiW47Kbx5q3W+mQA+FdP5HbdsklQpcTl07ngJq9p3d8gVfaE7zNUIFjNZkSUIsWHUgN9PgWC1HY5A==",
+      "type": "package",
+      "path": "csrequest/1.2.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "csrequest.1.2.6.nupkg.sha512",
+        "csrequest.nuspec",
+        "lib/net6.0/CSRequest.dll",
+        "lib/net6.0/CSRequest.xml"
+      ]
+    },
     "Humanizer.Core/2.14.1": {
       "sha512": "lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "type": "package",
@@ -2960,6 +3058,21 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Core.xml",
         "microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
         "microsoft.aspnetcore.authentication.core.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.9": {
+      "sha512": "sqrvj8x9e7i7QD+q4SJ0iR0rlA6az8WJl7oO5mS9lmgOaIwKKf8MEzcF5XWf/Yk6CA4akH3SnH0JB4+huKUPNg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/7.0.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
+        "lib/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
+        "microsoft.aspnetcore.authentication.jwtbearer.7.0.9.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authorization/2.2.0": {
@@ -4483,6 +4596,25 @@
         "mono.texttemplating.nuspec"
       ]
     },
+    "Namotion.Reflection/2.1.2": {
+      "sha512": "7tSHAzX8GWKy0qrW6OgQWD7kAZiqzhq+m1503qczuwuK6ZYhOGCQUxw+F3F4KkRM70aB6RMslsRVSCFeouIehw==",
+      "type": "package",
+      "path": "namotion.reflection/2.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Namotion.Reflection.dll",
+        "lib/net40/Namotion.Reflection.xml",
+        "lib/net45/Namotion.Reflection.dll",
+        "lib/net45/Namotion.Reflection.xml",
+        "lib/netstandard1.0/Namotion.Reflection.dll",
+        "lib/netstandard1.0/Namotion.Reflection.xml",
+        "lib/netstandard2.0/Namotion.Reflection.dll",
+        "lib/netstandard2.0/Namotion.Reflection.xml",
+        "namotion.reflection.2.1.2.nupkg.sha512",
+        "namotion.reflection.nuspec"
+      ]
+    },
     "NETStandard.Library/1.6.1": {
       "sha512": "WcSp3+vP+yHNgS8EV5J7pZ9IRpeDuARBPN28by8zqff1wJQXm26PVU8L3/fYLBJVU7BtDyqNVWq2KlCVvSSR4A==",
       "type": "package",
@@ -4541,6 +4673,44 @@
         "lib/netstandard2.0/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.2.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
+      ]
+    },
+    "NJsonSchema/10.9.0": {
+      "sha512": "IBPo6Srxn2MEcIFM3HdM4QImrJbsIeujENQyzHL2Pv6wLsKSYAyAEilecRqaLOhoy3snEiPLx7hhv7opbhOxKQ==",
+      "type": "package",
+      "path": "njsonschema/10.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NuGetIcon.png",
+        "lib/net40/NJsonSchema.dll",
+        "lib/net40/NJsonSchema.xml",
+        "lib/net45/NJsonSchema.dll",
+        "lib/net45/NJsonSchema.xml",
+        "lib/netstandard1.0/NJsonSchema.dll",
+        "lib/netstandard1.0/NJsonSchema.xml",
+        "lib/netstandard2.0/NJsonSchema.dll",
+        "lib/netstandard2.0/NJsonSchema.xml",
+        "njsonschema.10.9.0.nupkg.sha512",
+        "njsonschema.nuspec"
+      ]
+    },
+    "NSwag.Core/13.19.0": {
+      "sha512": "UkPCsEJ5WaE6mcEjarZZfMPyyRPHOWK9YuFvxNjrSHclCxVUZ7jgFtNGMX0wy0WvXkmA5b6H9IoaAJECMxcu/g==",
+      "type": "package",
+      "path": "nswag.core/13.19.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NuGetIcon.png",
+        "lib/net45/NSwag.Core.dll",
+        "lib/net45/NSwag.Core.xml",
+        "lib/netstandard1.0/NSwag.Core.dll",
+        "lib/netstandard1.0/NSwag.Core.xml",
+        "lib/netstandard2.0/NSwag.Core.dll",
+        "lib/netstandard2.0/NSwag.Core.xml",
+        "nswag.core.13.19.0.nupkg.sha512",
+        "nswag.core.nuspec"
       ]
     },
     "PaginationHelper/1.4.0": {
@@ -8634,6 +8804,8 @@
     "net7.0": [
       "AutoMapper >= 12.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.0",
+      "CSRequest >= 1.2.6",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 7.0.9",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 7.0.2",
       "Microsoft.AspNetCore.Mvc.Versioning >= 5.0.0",
       "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer >= 5.0.0",
@@ -8644,6 +8816,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.9",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.9",
       "Microsoft.Extensions.DependencyInjection >= 7.0.0",
+      "NSwag.Core >= 13.19.0",
       "PaginationHelper >= 1.4.0",
       "Swashbuckle.AspNetCore >= 6.5.0",
       "System.Linq.Dynamic.Core >= 1.2.24"
@@ -8656,11 +8829,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repo\\Catalog\\SampleWebApiAspNetCore\\Catalog.csproj",
+      "projectUniqueName": "D:\\Repo\\Catalog\\Catalog\\Catalog.csproj",
       "projectName": "Catalog",
-      "projectPath": "D:\\Repo\\Catalog\\SampleWebApiAspNetCore\\Catalog.csproj",
+      "projectPath": "D:\\Repo\\Catalog\\Catalog\\Catalog.csproj",
       "packagesPath": "C:\\Users\\norma\\.nuget\\packages\\",
-      "outputPath": "D:\\Repo\\Catalog\\SampleWebApiAspNetCore\\obj\\",
+      "outputPath": "D:\\Repo\\Catalog\\Catalog\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8700,6 +8873,14 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[12.0.0, )"
+          },
+          "CSRequest": {
+            "target": "Package",
+            "version": "[1.2.6, )"
+          },
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[7.0.9, )"
           },
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
             "target": "Package",
@@ -8744,6 +8925,10 @@
           "Microsoft.Extensions.DependencyInjection": {
             "target": "Package",
             "version": "[7.0.0, )"
+          },
+          "NSwag.Core": {
+            "target": "Package",
+            "version": "[13.19.0, )"
           },
           "PaginationHelper": {
             "target": "Package",

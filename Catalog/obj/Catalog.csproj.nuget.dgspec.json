@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Repo\\Catalog\\SampleWebApiAspNetCore\\Catalog.csproj": {}
+    "D:\\Repo\\Catalog\\Catalog\\Catalog.csproj": {}
   },
   "projects": {
-    "D:\\Repo\\Catalog\\SampleWebApiAspNetCore\\Catalog.csproj": {
+    "D:\\Repo\\Catalog\\Catalog\\Catalog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Repo\\Catalog\\SampleWebApiAspNetCore\\Catalog.csproj",
+        "projectUniqueName": "D:\\Repo\\Catalog\\Catalog\\Catalog.csproj",
         "projectName": "Catalog",
-        "projectPath": "D:\\Repo\\Catalog\\SampleWebApiAspNetCore\\Catalog.csproj",
+        "projectPath": "D:\\Repo\\Catalog\\Catalog\\Catalog.csproj",
         "packagesPath": "C:\\Users\\norma\\.nuget\\packages\\",
-        "outputPath": "D:\\Repo\\Catalog\\SampleWebApiAspNetCore\\obj\\",
+        "outputPath": "D:\\Repo\\Catalog\\Catalog\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -51,6 +51,14 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.0, )"
+            },
+            "CSRequest": {
+              "target": "Package",
+              "version": "[1.2.6, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.9, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
@@ -95,6 +103,10 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "NSwag.Core": {
+              "target": "Package",
+              "version": "[13.19.0, )"
             },
             "PaginationHelper": {
               "target": "Package",

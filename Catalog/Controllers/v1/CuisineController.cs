@@ -1,16 +1,18 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Catalog.Entities;
-using Catalog.Repositories;
+using Catalog.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Catalog.Dtos;
 using AutoMapper.QueryableExtensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Catalog.Controllers.v1
 {
     [ApiController]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
+    [Authorize]
     public class CuisineController : ControllerBase
     {
         private readonly IMapper _mapper;

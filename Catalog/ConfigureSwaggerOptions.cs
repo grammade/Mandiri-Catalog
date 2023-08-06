@@ -13,6 +13,33 @@ namespace Catalog
 
         public void Configure(SwaggerGenOptions options)
         {
+            var securityScheme = new OpenApiSecurityScheme()
+            {
+                Name = "Authorization",
+                Type = SecuritySchemeType.ApiKey,
+                Scheme = "Bearer",
+                BearerFormat = "JWT",
+                In = ParameterLocation.Header,
+                Description = "JSON Web Token based security",
+            };
+            var securityReq = new OpenApiSecurityRequirement()
+            {
+                {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        }
+                    },
+                    new string[] {}
+                }
+            };
+
+            options.AddSecurityDefinition("Bearer", securityScheme);
+            options.AddSecurityRequirement(securityReq);
+
             foreach (var description in provider.ApiVersionDescriptions)
             {
                 options.SwaggerDoc(description.GroupName, CreateInfoForApiVersion(description));

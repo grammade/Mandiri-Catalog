@@ -8,14 +8,36 @@ using Newtonsoft.Json.Serialization;
 using Catalog;
 using Catalog.Helpers;
 using Catalog.MappingProfiles;
-using Catalog.Repositories;
+using Catalog.Persistence;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using PaginationHelper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Catalog.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var config = builder.Configuration;
 // Add services to the container.
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(x =>
+{
+    x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+    {
+        ValidIssuer = config["JWT:Issuer"],
+        ValidAudience = config["JWT:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Key"]!)),
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true
+    };
+});
 
 builder.Services.AddControllers()
                 .AddNewtonsoftJson(options =>
@@ -33,6 +55,8 @@ builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwa
 
 builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 builder.Services.AddSingleton<IUrlHelperFactory, UrlHelperFactory>();
+builder.Services.AddSingleton<ThirdPartyGateway>();
+builder.Services.AddSingleton<TransactionAPI>();
 
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddVersioning();
@@ -74,6 +98,7 @@ else
 app.UseCors("AllowAllOrigins");
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

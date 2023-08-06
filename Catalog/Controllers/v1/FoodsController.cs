@@ -1,31 +1,37 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Catalog.Entities;
-using Catalog.Repositories;
+using Catalog.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Catalog.Dtos;
 using AutoMapper.QueryableExtensions;
 using PaginationHelper;
+using Catalog.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Catalog.Controllers.v1
 {
     [ApiController]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
+    [Authorize]
     public class FoodsController : ControllerBase
     {
         private readonly IMapper _mapper;
         private readonly Context _context;
         private readonly IPageHelper _pageHelper;
+        private readonly ThirdPartyGateway _thirdPartyGateway;
 
         public FoodsController(
             Context context,
             IMapper mapper,
-            IPageHelper pageHelper)
+            IPageHelper pageHelper,
+            ThirdPartyGateway thirdPartyGateway)
         {
             _context = context;
             _mapper = mapper;
             _pageHelper = pageHelper;
+            _thirdPartyGateway = thirdPartyGateway;
         }
 
         [HttpGet("")]
@@ -47,12 +53,15 @@ namespace Catalog.Controllers.v1
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Food>> GetFoodById(int id)
+        public async Task<ActionResult<FoodDto>> GetFoodById(int id)
         {
-            var r = await _context.Foods.FirstOrDefaultAsync(f => f.Id.Equals(id));
-            if (r is null)
+            var food = await _context.Foods.FirstOrDefaultAsync(f => f.Id.Equals(id));
+            if (food is null)
                 return BadRequest("Food Not Found");
-            return Ok(r);
+            var result = _mapper.Map<FoodDto>(food);
+            result.NutritionalValues = await _thirdPartyGateway.GetNutValues(food.Name!);
+
+            return Ok(result);
         }
 
         [HttpGet("cuisine/{name}")]
