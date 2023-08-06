@@ -58,6 +58,8 @@ builder.Services.AddSingleton<IUrlHelperFactory, UrlHelperFactory>();
 builder.Services.AddSingleton<ThirdPartyGateway>();
 builder.Services.AddSingleton<TransactionAPI>();
 
+builder.Services.AddScoped<UserAuthorizationService>();
+
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddVersioning();
 

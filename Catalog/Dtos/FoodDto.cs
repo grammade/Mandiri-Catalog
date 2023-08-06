@@ -13,4 +13,6 @@ namespace Catalog.Dtos
 
     public record FoodRec(string Name, int CuisineId);
     public record FoodRecUpdate(string? Name, int? CuisineId);
+    public record FoodRecOrder(List<FoodRecOrderItems> foods, int userId);
+    public record FoodRecOrderItems(int id, string name);
 }

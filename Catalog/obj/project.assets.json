@@ -8829,11 +8829,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repo\\Catalog\\Catalog\\Catalog.csproj",
+      "projectUniqueName": "D:\\Repo\\_mandiri\\Catalog\\Catalog\\Catalog.csproj",
       "projectName": "Catalog",
-      "projectPath": "D:\\Repo\\Catalog\\Catalog\\Catalog.csproj",
+      "projectPath": "D:\\Repo\\_mandiri\\Catalog\\Catalog\\Catalog.csproj",
       "packagesPath": "C:\\Users\\norma\\.nuget\\packages\\",
-      "outputPath": "D:\\Repo\\Catalog\\Catalog\\obj\\",
+      "outputPath": "D:\\Repo\\_mandiri\\Catalog\\Catalog\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

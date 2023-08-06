@@ -21,17 +21,21 @@ namespace Catalog.Controllers.v1
         private readonly Context _context;
         private readonly IPageHelper _pageHelper;
         private readonly ThirdPartyGateway _thirdPartyGateway;
+        private readonly UserAuthorizationService _auth;
+        protected string IP => (string)HttpContext.Connection.RemoteIpAddress.ToString() ?? "";
 
         public FoodsController(
             Context context,
             IMapper mapper,
             IPageHelper pageHelper,
-            ThirdPartyGateway thirdPartyGateway)
+            ThirdPartyGateway thirdPartyGateway,
+            UserAuthorizationService auth)
         {
             _context = context;
             _mapper = mapper;
             _pageHelper = pageHelper;
             _thirdPartyGateway = thirdPartyGateway;
+            _auth = auth;
         }
 
         [HttpGet("")]
@@ -79,6 +83,7 @@ namespace Catalog.Controllers.v1
         [HttpPost("")]
         public async Task<ActionResult<Food>> CreateFood(FoodRec model)
         {
+            _auth.setIP(IP);
             var food = _mapper.Map<Food>(model);
             await _context.AddAsync(food);
             await _context.SaveChangesAsync();
@@ -88,6 +93,7 @@ namespace Catalog.Controllers.v1
         [HttpPut("{id}")]
         public async Task<ActionResult<Food>> UpdateFood([FromRoute]int id, [FromBody] FoodRecUpdate model)
         {
+            _auth.setIP(IP);
             var food = await _context.Foods.FirstOrDefaultAsync(f => f.Id.Equals(id));
             if (food is null)
                 return BadRequest("Food Not Found");
@@ -104,6 +110,7 @@ namespace Catalog.Controllers.v1
         [HttpDelete("{id}")]
         public async Task<ActionResult<Food>> DeleteFood([FromRoute] int id)
         {
+            _auth.setIP(IP);
             var food = await _context.Foods.FirstOrDefaultAsync(f => f.Id.Equals(id));
             if (food is null)
                 return BadRequest("Food Not Found");

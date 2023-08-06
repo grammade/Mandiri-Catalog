@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fYxZjdrKxC7MIi02Cj/6lt0zBZcpUCrJVK8NIYKYRwZUv+odhHUJ68R/Ne5yumugUvbFV6jHcvz3Bf+hqMDm2g==",
+  "dgSpecHash": "tel54hS839ArKySBnsvlV8J+ad5VuEV72F0DcgqiC/n4GVbTF7IseneVmvAXDRx2dhdLJWWIu8BWn/6XaMnSpQ==",
   "success": true,
-  "projectFilePath": "D:\\Repo\\Catalog\\Catalog\\Catalog.csproj",
+  "projectFilePath": "D:\\Repo\\_mandiri\\Catalog\\Catalog\\Catalog.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\norma\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\norma\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

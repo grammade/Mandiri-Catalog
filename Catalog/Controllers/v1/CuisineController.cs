@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Catalog.Dtos;
 using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Authorization;
+using PaginationHelper;
 
 namespace Catalog.Controllers.v1
 {
@@ -17,17 +18,21 @@ namespace Catalog.Controllers.v1
     {
         private readonly IMapper _mapper;
         private readonly Context _context;
+        private readonly IPageHelper _pageHelper;
 
         public CuisineController(
             Context context,
-            IMapper mapper)
+            IMapper mapper,
+            IPageHelper pageHelper)
         {
             _context = context;
             _mapper = mapper;
+            _pageHelper = pageHelper;
         }
 
         [HttpGet("")]
-        public async Task<ActionResult<List<Cuisine>>> GetCuisines() => await _context.Cuisines.ToListAsync();
+        public async Task<ActionResult<Envelope<Cuisine>>> GetCuisines([FromQuery] PaginationDto paginationDto) 
+            => Ok(await _pageHelper.GetPageAsync(_context.Cuisines.AsNoTracking(), paginationDto));
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Cuisine>> GetCuisineById(int id)
