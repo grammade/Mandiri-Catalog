@@ -56,7 +56,7 @@ namespace Catalog.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Changelogs");
+                    b.ToTable("Changelogs", (string)null);
                 });
 
             modelBuilder.Entity("Catalog.Entities.Cuisine", b =>
@@ -75,7 +75,7 @@ namespace Catalog.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cuisines");
+                    b.ToTable("Cuisines", (string)null);
                 });
 
             modelBuilder.Entity("Catalog.Entities.Food", b =>
@@ -99,7 +99,7 @@ namespace Catalog.Migrations
 
                     b.HasIndex("CuisineId");
 
-                    b.ToTable("Foods");
+                    b.ToTable("Foods", (string)null);
                 });
 
             modelBuilder.Entity("Catalog.Entities.Food", b =>
