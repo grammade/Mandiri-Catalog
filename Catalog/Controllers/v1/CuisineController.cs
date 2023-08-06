@@ -7,6 +7,7 @@ using Catalog.Dtos;
 using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Authorization;
 using PaginationHelper;
+using Catalog.Services;
 
 namespace Catalog.Controllers.v1
 {
@@ -19,15 +20,19 @@ namespace Catalog.Controllers.v1
         private readonly IMapper _mapper;
         private readonly Context _context;
         private readonly IPageHelper _pageHelper;
+        private readonly UserAuthorizationService _auth;
+        protected string IP => (string)HttpContext.Connection.RemoteIpAddress.ToString() ?? "";
 
         public CuisineController(
             Context context,
             IMapper mapper,
-            IPageHelper pageHelper)
+            IPageHelper pageHelper,
+            UserAuthorizationService auth)
         {
             _context = context;
             _mapper = mapper;
             _pageHelper = pageHelper;
+            _auth = auth;
         }
 
         [HttpGet("")]
@@ -46,6 +51,7 @@ namespace Catalog.Controllers.v1
         [HttpPost("")]
         public async Task<ActionResult<Cuisine>> CreateCuisine(string name)
         {
+            _auth.setIP(IP);
             if (await _context.Cuisines.FirstOrDefaultAsync(c => c.Name.ToLower().Equals(name.ToLower())) is not null)
                 return BadRequest($"{name} is already exists");
 
@@ -58,6 +64,7 @@ namespace Catalog.Controllers.v1
         [HttpPut("{id}")]
         public async Task<ActionResult<Cuisine>> UpdateCuisine([FromRoute]int id, [FromBody] CuisineRec model)
         {
+            _auth.setIP(IP);
             var Cuisine = await _context.Cuisines.FirstOrDefaultAsync(f => f.Id.Equals(id));
             if (Cuisine is null)
                 return BadRequest("Cuisine Not Found");
@@ -72,6 +79,7 @@ namespace Catalog.Controllers.v1
         [HttpDelete("{id}")]
         public async Task<ActionResult<Cuisine>> DeleteCuisine([FromRoute] int id)
         {
+            _auth.setIP(IP);
             var Cuisine = await _context.Cuisines.FirstOrDefaultAsync(f => f.Id.Equals(id));
             if (Cuisine is null)
                 return BadRequest("Cuisine Not Found");
